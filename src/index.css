@@ -7,6 +7,7 @@ body {
   background-color: #f3f4f6;
   width: 100vw;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -17,7 +18,7 @@ body {
 }
 
 .accordion {
-  max-width: 50rem;
+  max-width: 100dvw;
   border-radius: 1rem;
   overflow: hidden;
 }
@@ -36,8 +37,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: bold;
-  font-size: 1.25rem;
+  font-weight: 600;
+  font-size: 1.2rem;
   /* margin-bottom: 0.5rem; */
 }
 
