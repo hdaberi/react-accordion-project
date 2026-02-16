@@ -19,10 +19,20 @@ const accordionData = [
 ];
 
 function Accordion() {
+  const [open, setOpen] = useState(null);
   return (
     <div className="accordion">
       {accordionData.map((item) => {
-        return <AccordionItem key={item.id} item={item} />;
+        return (
+          <AccordionItem
+            key={item.id}
+            item={item}
+            setOpen={setOpen}
+            open={open}
+          >
+            {item.text}
+          </AccordionItem>
+        );
       })}
     </div>
   );
@@ -30,20 +40,20 @@ function Accordion() {
 
 export default Accordion;
 
-const AccordionItem = ({ item }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AccordionItem = ({ item, setOpen, open, children }) => {
+  const isOpen = item.id === open ? true : false;
   return (
     <div className={`accordion-item ${isOpen ? "accordion__expanded" : ""}`}>
       <div
         className="accordion-item__header"
         onClick={() => {
-          setIsOpen((is) => !is);
+          setOpen(item.id === open ? null : item.id);
         }}
       >
         <div>{item.title}</div>
         <ChevronDownIcon className="accordion-item__chevron" />
       </div>
-      <div className="accordion-item__content">{item.text}</div>
+      <div className="accordion-item__content">{children}</div>
     </div>
   );
 };
